@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Menu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./lib/datatables/dataTables.css" />
+
+</head>
+<body>
+    
+    <div class="container" id="main_hud">
+        <aside id="nav">
+            <div class="top">
+                <div class="profile">
+                    
+                    <div class="profile-photo">
+                        <img src="./images/user.png">
+                    </div>
+                    <div class="info">
+                        <p>Hey,</p>
+                        <b>Miha</b>
+                        <small class="text-muted">supporter</small>
+                        
+                    </div>
+                </div>
+                <div class="toggle">
+                    <div class="theme-toggler">
+                        <span class="material-icons-sharp active">light_mode</span>
+                        <span class="material-icons-sharp">dark_mode</span>
+                    </div>
+                    <div class="admin-toggler">
+                        <span class="material-icons-sharp active">visibility_off</span>
+                        <span class="material-icons-sharp">visibility</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="sidebar">
+                
+
+                <a class="menuselect" href="#">
+                    <span class="material-icons-sharp">admin_panel_settings</span>
+                    <h3>Admin Suite</h3>
+                </a>
+
+                <a class="menuselect" href="#">
+                    <span class="material-icons-sharp">view_list</span>
+                    <h3>Noclip</h3>
+                </a>
+
+                <a class="menuselect" href="#">
+                    <span class="material-icons-sharp">bolt</span>
+                    <h3>Teleport to Waypoint</h3>
+                </a>
+
+
+                <a class="menuselect" href="#">
+                    <span class="material-icons-sharp">settings</span>
+                    <h3>Einstellungen</h3>
+                </a>
+
+            </div>
+
+        </aside>
+
+        <div id="container2" class="container2">
+            <main id="con2_left">
+               
+                <!-- generated content -->
+
+            </main>
+
+            <!------------------ENDE MAIN------------------------->
+
+            <div id="con2_right" class="right">
+                
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="./lib/datatables/dataTables.js"></script>
+    <script src="spieler.js"></script>
+    <script src="index.js"></script>
+
+    
+
+</body>
+</html>
