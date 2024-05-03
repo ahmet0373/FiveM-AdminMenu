@@ -675,15 +675,15 @@ main .box-mitte-controls a{
 
 
 #spielerTable {
-    margin: 0 auto; /* Zentrieren der Tabelle */
+    margin: 0 auto; 
 }
 
 #spielerTable th {
-    text-align: center; /* Zentrieren des Textes in den Tabellenüberschriften */
+    text-align: center; 
 }
 
 #spielerTable td {
-    text-align: center; /* Zentrieren des Textes in den Tabellenzellen */
+    text-align: center; 
 }
 
 .bi.bi-eye {
@@ -701,16 +701,31 @@ main .box-mitte-controls a{
 
 
 #autosTable {
-    margin: 0 auto; /* Zentrieren der Tabelle */
+    margin: 0 auto; 
 }
 
 #autosTable th {
-    text-align: center; /* Zentrieren des Textes in den Tabellenüberschriften */
+    text-align: center; 
 }
 
 #autosTable td {
-    text-align: center; /* Zentrieren des Textes in den Tabellenzellen */
+    text-align: center; 
 }
+/************************ticketss table*********************************/
+
+
+#ticketsTable {
+    margin: 0 auto; 
+}
+
+#ticketsTable th {
+    text-align: center; 
+}
+
+#ticketsTable td {
+    text-align: center; 
+}
+
 
 
 
@@ -1116,4 +1131,69 @@ aside .sidebar-pop .message-count{
     background: transparent;
     color: var(--color-success);
     border: solid 2px var(--color-success);
+}
+/************************Popup Fenster infos ticket*********************************/
+
+.pop-note-ticket {
+    position: relative; 
+    margin-top: 5px; 
+    width: 100%; 
+    height: 120px;
+    background-color: var(--color-white);
+    border-radius: var(--card-border-radius);
+    box-shadow: 0 1rem 1rem var(--color-light);
+    transition: all 300ms ease;
+    padding: 20px; 
+}
+
+
+.pop-ticket-button button {
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--color-primary);
+    background: transparent;
+    padding: 5px 15px;
+    border: solid var(--color-primary) 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 8px;
+    transition: 613ms;
+    transform: translateY(0);
+    cursor: pointer;
+    text-transform: uppercase; 
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+.pop-ticket-button button:hover {
+    transition : 613ms;
+    padding: 5px 15px;
+    transform : translateY(-0px);
+    background: transparent;
+    color: var(--color-success);
+    border: solid 2px var(--color-success);
+}
+
+.popup-content .pop-info-ticket{
+    margin-top: 1rem;
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    row-gap: 2rem;
+    height: 35vh;
+    width: 600px;
+}
+
+.pop-info-ticket h3 {
+    margin-top: 5px; 
+}
+
+
+
+.pop-info-ticket a {
+    color: var(--color-primary); 
+    font-weight: lighter; 
+    margin-left: 20px; 
 }

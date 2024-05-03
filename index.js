@@ -160,6 +160,87 @@ var autos = [
         "status" : "ausgeparkt"
     }
 ]
+
+var tickets = [
+    
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "status" : "offen"
+    }
+]
 var sprache  = {
     "decimal":        "",
     "emptyTable":     "No data available in table",
@@ -278,12 +359,12 @@ function modal_autos(daten){
                             
             
                             <a id="actions" class="menuselect active" onclick="button3('infos')" href="#">
-                                <span class="material-icons-sharp">bolt</span>
+                                <span class="material-icons-sharp">account_circle</span>
                                 <h3>infos</h3>
                             </a>
             
                             <a id="infos" class="menuselect" onclick="button3('actions')" href="#">
-                                <span class="material-icons-sharp">account_circle</span>
+                                <span class="material-icons-sharp">bolt</span>
                                 <h3>Actions</h3>
                             </a>
                         </div>
@@ -317,16 +398,72 @@ function modal_autos(daten){
     });
 }
 
+function modal_tickets(daten){
+    var blur = $('#main_hud');
+    blur.addClass('blur');
+
+    var popupContent = `
+        <div class="popup">
+            <div class="popup-content">
+            <span class="close material-icons-sharp">close</span>
+            
+                    <aside id="nav">
+                        <div class="sidebar-pop">
+                            
+            
+                            <a id="actions" class="menuselect active" onclick="button4('infos')" href="#">
+                                <span class="material-icons-sharp">account_circle</span>
+                                <h3>infos</h3>
+                            </a>
+            
+                            <a id="infos" class="menuselect" onclick="button4('actions')" href="#">
+                                <span class="material-icons-sharp">bolt</span>
+                                <h3>Actions</h3>
+                            </a>
+                            <a id="ids" class="menuselect" onclick="button4('ids')" href="#">
+                                <span class="material-icons-sharp">format_list_bulleted</span>
+                                <h3>IDs</h3>
+                            </a>
+                            <a id="infos" class="menuselect" onclick="button4('actions')" href="#">
+                                <span class="material-icons-sharp">account_circle</span>
+                                <h3>Chat</h3>
+                            </a>
+                        </div>
+        
+                    </aside>
+                    
+                    <div id="popup_action2">
+                        <!-- generated content -->
+                    </div>
+                    
+            </div>
+        </div>
+    `;
+    
+    
+    $('body').append(popupContent); 
+
+    button4("infos");
+
+    $(document).mouseup(function(e) {
+        var popup = $('.popup-content');
+        if (!popup.is(e.target) && popup.has(e.target).length === 0) {
+            $('.popup').remove();
+            blur.removeClass('blur');
+        }
+    });
+    
+    $('.close').click(function() {
+        $('.popup').remove();
+        blur.removeClass('blur');
+    });
+}
+
 
 function buildcontainers() {
     // standard load
-
-
     fillcon2_left_list()
-    
 
-    
-    
     $('#con2_right').css("display","none")
 
     const themeToggler = document.querySelector(".theme-toggler");
@@ -592,6 +729,108 @@ function fillpopup_auto_action(){
     `)
 }
 
+// Popup für die tickets
+
+function button4(type) {
+
+    if (type == "infos") {
+        fillpopup_ticket_info() 
+        $('.menuselect').removeClass('active');
+        $('#actions').addClass('active');
+
+    } else if (type == "actions") {
+        fillpopup_ticket_action()
+        $('.menuselect').removeClass('active');
+        $('#infos').addClass('active');
+    } else if (type == "ids") {
+        fillpopup_ticket_ids()
+        $('.menuselect').removeClass('active');
+        $('#ids').addClass('active');
+    } 
+}
+
+function fillpopup_ticket_info(){
+    $('#popup_action2').html(`
+        <div class="pop-info-ticket">      
+            <h2>Ticket info</h2>
+            <h3>Session Time: <a>15 Minuten</a></h3>
+            <h3>Play Time: <a>3 day, 12 hours, 23 minutes</a></h3>
+            <h3>Joined: <a>Apirl 28, 2024 - 18:49:23</a></h3>
+            
+            <h3>Notizen über den Vorfall</h3>
+            <div class="pop-note-ticket">
+                <h4>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</h4>
+            </div>
+            <div class="pop-ticket-button">
+            <button class="pop-button">Screenshot Ansehen</button>
+            <button class="pop-button">Zum Chat</button>
+            </div>
+        </div>
+    `)
+}
+
+function fillpopup_ticket_action(){
+    $('#popup_action2').html(`
+        <div class="pop-info">      
+            <h2>Spieler Aktionen</h2>
+            <h3>Moderation</h3>
+            <div class="pop-mod">
+                <button class="pop-button">DM</button>
+                <button class="pop-button">WARN</button>
+                <button class="pop-button">KICK</button>
+                <button class="pop-button">GIVE ADMIN</button>
+            </div>
+            <h3>Tnteraction</h3>
+            <div class="pop-mod">
+                <button class="pop-button">heal</button>
+                <button class="pop-button">GO TO</button>
+                <button class="pop-button">bring</button>
+                <button class="pop-button">spectate</button>
+                <button class="pop-button">toggle freeze</button>
+            </div>
+            <h3>Troll</h3>
+            <div class="pop-mod">
+                <button class="pop-button">make drunk</button>
+                <button class="pop-button">set fire</button>
+                <button class="pop-button">wild attack</button>
+            </div>
+        </div>
+    `)
+}
+
+function fillpopup_ticket_ids(){
+    $('#popup_action2').html(`
+        <div class="pop-info">      
+            <div class="ids">
+                <h4>licende:asdfsdf789d6f7ds6f7d7f8d7sfd8f787824h32g47</h4>
+                <span class="material-icons-sharp copy-icon">content_copy</span>
+            </div>
+            <div class="ids">
+                <h4>xbl:34563453625752324</h4>
+                <span class="material-icons-sharp copy-icon">content_copy</span>
+            </div>
+            <div class="ids">
+                <h4>live:4534534578998457</h4>
+                <span class="material-icons-sharp copy-icon">content_copy</span>
+            </div>
+            <div class="ids">
+                <h4>discord:346759829837478968958</h4>
+                <span class="material-icons-sharp copy-icon">content_copy</span>
+            </div>
+            <div class="ids">
+                <h4>fivem:68538380</h4>
+                <span class="material-icons-sharp copy-icon">content_copy</span>
+            </div>
+        </div>
+`);
+
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+}
+
+
 // Haupt seite / container
 
 function fillcon2_left_dash() {
@@ -725,172 +964,7 @@ function fillcon2_left_dash() {
         </div>
     `)
 }
-function fillcon2_left_controls() {
-    $('#con2_left').html(`
-    <div class="mitte-oben">
-        <div id="list" class="box1" onclick="button1('list')" href="#">
-            <span class="material-icons-sharp">admin_panel_settings</span>
-            <div class="middle">
-                <div class="lef">
-                    <h3>Admins</h3>
-                    <h1>434</h1>
-                </div>
-                <div class="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="number">
-                        <p>51%</p>
-                    </div>
-                </div>
-            </div>
-            <small class="text-muted">Aktuell</small>
-        </div>
-        <!-------------------------Ende erste block---------------------------->
-        <div class="box2">
-            <span class="material-icons-sharp">no_accounts</span>
-            <div class="middle">
-                <div class="lef">
-                    <h3>Admin Off Duty</h3>
-                    <h1>234</h1>
-                </div>
-                <div class="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="number">
-                        <p>51%</p>
-                    </div>
-                </div>
-            </div>
-            <small class="text-muted">Aktuell</small>
-        </div>
-        <!-------------------------Ende zweite block---------------------------->
-        <div class="box3">
-            <span class="material-icons-sharp">account_circle</span>
-            <div class="middle">
-                <div class="lef">
-                    <h3>Admin On Duty</h3>
-                    <h1>34</h1>
-                </div>
-                <div class="progress">
-                    <svg>
-                        <circle cx="38" cy="38" r="36"></circle>
-                    </svg>
-                    <div class="number">
-                        <p>71%</p>
-                    </div>
-                </div>
-            </div>
-            <small class="text-muted">Aktuell</small>
-        </div>
-        <!-------------------------Ende dritter block---------------------------->
-    </div>
 
-    <!-------------------------Ende insight---------------------------->
-    <div class="box-mitte-controls">
-        <h2>Aktionen</h2>
-          <div class="table-container">  
-                <table class="controlst1">
-                    <thead>
-                        <tr>
-                            <th>Shortcuts</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><button class="aktionb">Admin Duty</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">Admin Suite</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">Noclip</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">Nametags</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">TP to WP</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">coming soon</button></td>
-                        </tr>
-                        <tr>
-                            <td><button class="aktionb">coming soon</button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <table class="controlst2">
-                    <thead>
-                        <tr>
-                            <th>My ID</th>
-                            <th>Item</th>
-                            <th>Amount</th>
-                            <th>To ID</th>
-                            <th>Give</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="text" name="my_id" placeholder="Your ID"></td>
-                            <td><input type="text" name="amount" placeholder="Items"></td>
-                            <td><input type="text" name="to_id" placeholder="Amount"></td>
-                            <td><input type="text" name="my_id" placeholder="To ID"></td>
-                            <td><button class="aktionb">Give</button></td>
-                        </tr>
-                        <tr>
-                            <td><b>My ID<b></td>
-                            <td><b>Money<b></td>
-                            <td><b>Amount<b></td>
-                            <td><b>To ID<b></td>
-                            <td><b>Give<b></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="my_id" placeholder="Your ID"></td>
-                            <td><input type="text" name="amount" placeholder="Geld"></td>
-                            <td><input type="text" name="to_id" placeholder="Amount"></td>
-                            <td><input type="text" name="my_id" placeholder="To ID"></td>
-                            <td><button class="aktionb">Give</button></td>
-                        </tr>
-                        <tr>
-                            <td><b>My ID<b></td>
-                            <td><b>Weapon<b></td>
-                            <td><b>Job<b></td>
-                            <td><b>To ID<b></td>
-                            <td><b>Give<b></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="my_id" placeholder="Your ID"></td>
-                            <td><input type="text" name="amount" placeholder="Weapon"></td>
-                            <td><input type="text" name="to_id" placeholder="job"></td>
-                            <td><input type="text" name="my_id" placeholder="To ID"></td>
-                            <td><button class="aktionb">Give</button></td>
-                        </tr>
-                        <tr>
-                            <td><b>My ID<b></td>
-                            <td><b>Vehicle<b></td>
-                            <td><b>Job<b></td>
-                            <td><b>To ID<b></td>
-                            <td><b>Give<b></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="my_id" placeholder="Your ID"></td>
-                            <td><input type="text" name="amount" placeholder="Fahrzeug"></td>
-                            <td><input type="text" name="to_id" placeholder="Job"></td>
-                            <td><input type="text" name="my_id" placeholder="To ID"></td>
-                            <td><button class="aktionb">Give</button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        <!---<a href="#">Mehr Anzeigen</a>---->
-    </div>
-`)
-}
 function fillcon2_left_list() {
     $('#con2_left').html(`
     <div class="mitte-oben">
@@ -1040,7 +1114,7 @@ function fillcon2_left_ticket() {
             <span class="material-icons-sharp">groups</span>
             <div class="middle">
                 <div class="lef">
-                    <h3>Tickets</h3>
+                    <h3>Spieler</h3>
                     <h1>434</h1>
                 </div>
                 <div class="progress">
@@ -1059,7 +1133,7 @@ function fillcon2_left_ticket() {
             <span class="material-icons-sharp">directions_car</span>
             <div class="middle">
                 <div class="lef">
-                    <h3>Offene Tickets</h3>
+                    <h3>Fahrzeuge</h3>
                     <h1>234</h1>
                 </div>
                 <div class="progress">
@@ -1078,7 +1152,7 @@ function fillcon2_left_ticket() {
             <span class="material-icons-sharp">analytics</span>
             <div class="middle">
                 <div class="lef">
-                    <h3>Abgeschlossene Tickets</h3>
+                    <h3>Tickets</h3>
                     <h1>34</h1>
                 </div>
                 <div class="progress">
@@ -1097,72 +1171,85 @@ function fillcon2_left_ticket() {
 
     <!-------------------------Ende insight---------------------------->
     <div class="box-mitte">
-        <h2>Tickets</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Spieler Name</th>
-                    <th>Discord ID</th>
-                    <th>ID</th>
-                    <th>Job</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-                <tr>
-                    <td>Miha Nowotny</td>
-                    <td>1235423</td>
-                    <td>34</td>
-                    <td>Diaz Cartel</td>
-                    <td class="primary">Details</td>
-                </tr>
-
-            </tbody>
+        
+        <table id="ticketsTable" class="display" width="100%">
+    
+        
         </table>
         <!---<a href="#">Mehr Anzeigen</a>---->
     </div>
 `)
+
+let toolbar = document.createElement('div');
+toolbar.innerHTML = '<h2>Tickets</h2>';
+
+let TableTicket = $('#ticketsTable').DataTable({
+    pageLength: 7, 
+    lengthChange: false,
+    language: sprache,
+    layout: {
+        topStart: toolbar
+    },
+    data : tickets,
+    'columns' : [
+        {data : 'id'},
+        {data : 'name'},
+        {data : 'ticket_id'},
+        {data : 'zeit'},
+        {data : 'status'},
+        {data : 'id'}
+    ],
+    columnDefs: [
+        
+        {
+            title: 'id',
+            targets: 0
+        },
+        {
+            title: 'name',
+            targets: 1
+        },
+        {
+            title: 'ticket id',
+            targets: 2
+        },
+        {
+            title: 'zeit',
+            targets: 3
+        },
+        {
+            title: 'status',
+            targets: 4,
+        },
+        {
+            title: 'id',
+            targets: 5,
+            sortable: false
+        }
+    ]
+});
+
+TableTicket.on("draw", function() {
+    if (TableTicket.column(5).nodes()) {
+        TableTicket.column(5).nodes().each(function(cell, i) {
+            var taskid = $(cell).text().trim();
+            $(cell).html(`
+            
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" onclick="modal_tickets('${taskid}')">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
+                </svg>
+            
+            `);
+        });    
+    }    
+       
+})
+
+TableTicket.draw();
+
+
+
 }
 
 function fillcon2_left_auto() {
@@ -1191,7 +1278,7 @@ function fillcon2_left_auto() {
             <span class="material-icons-sharp">directions_car</span>
             <div class="middle">
                 <div class="lef">
-                    <h3>Autos</h3>
+                    <h3>Fahrzeuge</h3>
                     <h1>234</h1>
                 </div>
                 <div class="progress">
