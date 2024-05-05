@@ -424,8 +424,8 @@ function modal_tickets(daten){
                                 <span class="material-icons-sharp">format_list_bulleted</span>
                                 <h3>IDs</h3>
                             </a>
-                            <a id="infos" class="menuselect" onclick="button4('actions')" href="#">
-                                <span class="material-icons-sharp">account_circle</span>
+                            <a id="chat" class="menuselect" onclick="button4('chat')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
                                 <h3>Chat</h3>
                             </a>
                         </div>
@@ -746,6 +746,10 @@ function button4(type) {
         fillpopup_ticket_ids()
         $('.menuselect').removeClass('active');
         $('#ids').addClass('active');
+    } else if (type == "chat") {
+        fillpopup_ticket_chat()
+        $('.menuselect').removeClass('active');
+        $('#chat').addClass('active');
     } 
 }
 
@@ -830,7 +834,35 @@ function fillpopup_ticket_ids(){
     });
 }
 
+function fillpopup_ticket_chat(){
+    $('#popup_action2').html(`
+        <div class="chatbot">      
+            
+                <header>
+                    <h2>User 1</h2>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat kommt">
+                        <span class="material-icons-sharp">account_circle</span>
+                        <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                    </li>
+                    <li class="chat geht">
+                        <p>Das ist ein beispiel text!</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Nachricht senden ..." required></textarea>
+                    <span class="material-icons-sharp">send</span>
+                </div>
+            
+        </div>
+`);
 
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+}
 // Haupt seite / container
 
 function fillcon2_left_dash() {
