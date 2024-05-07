@@ -770,8 +770,8 @@ function fillpopup_ticket_info(){
             <div class="top-ticket">
                 <div class="info-ticket">  
                         <h2>Ticket info</h2>
-                        <h3>Session Time: <a>15 Minuten</a></h3>
-                        <h3>Play Time: <a>3 day, 12 hours, 23 minutes</a></h3>
+                        <h3>Ticket ID: <a>#273917</a></h3>
+                        <h3>Datum: <a>07.05.2024 23:41</a></h3>
                         <h3>Joined: <a>Apirl 28, 2024 - 18:49:23</a></h3>
                         
                         <h3>Notizen über den Vorfall</h3>
@@ -1331,7 +1331,7 @@ let TableTicket = $('#ticketsTable').DataTable({
             targets: 5,
         },
         {
-            title: 'id',
+            title: '',
             targets: 6,
             sortable: false
         }
