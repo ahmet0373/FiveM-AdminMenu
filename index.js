@@ -508,7 +508,7 @@ function fillpopup_action(){
                 <button class="pop-button">KICK</button>
                 <button class="pop-button">GIVE ADMIN</button>
             </div>
-            <h3>Tnteraction</h3>
+            <h3>Interaction</h3>
             <div class="pop-mod">
                 <button class="pop-button">heal</button>
                 <button class="pop-button">GO TO</button>
@@ -755,22 +755,57 @@ function button4(type) {
 
 function fillpopup_ticket_info(){
     $('#popup_action2').html(`
-        <div class="pop-info-ticket">      
-            <h2>Ticket info</h2>
-            <h3>Session Time: <a>15 Minuten</a></h3>
-            <h3>Play Time: <a>3 day, 12 hours, 23 minutes</a></h3>
-            <h3>Joined: <a>Apirl 28, 2024 - 18:49:23</a></h3>
-            
-            <h3>Notizen über den Vorfall</h3>
-            <div class="pop-note-ticket">
-                <h4>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</h4>
+        <div class="pop-info-ticket">   
+            <div class="top-ticket">
+                <div class="info-ticket">  
+                        <h2>Ticket info</h2>
+                        <h3>Session Time: <a>15 Minuten</a></h3>
+                        <h3>Play Time: <a>3 day, 12 hours, 23 minutes</a></h3>
+                        <h3>Joined: <a>Apirl 28, 2024 - 18:49:23</a></h3>
+                        
+                        <h3>Notizen über den Vorfall</h3>
+                </div>
+                <div class="dropdown">
+                    <div class="select">
+                        <span class="selected">Kategorie</span>
+                        <div class="caret"></div>
+                    </div>
+                    <ul class="menu">
+                        <li class="active">Keine</li>
+                        <li>Fraktion</li>
+                        <li>Allgemein</li>
+                        <li>Auto</li>
+                        <li>Developer</li>
+                        <li>Bewerbung</li>
+                    </ul>
+                </div>
             </div>
-            <div class="pop-ticket-button">
-            <button class="pop-button">Screenshot Ansehen</button>
-            <button class="pop-button">Zum Chat</button>
-            </div>
+            <ul class="chatbox">
+                <li class="chat kommt">
+                    <span class="material-icons-sharp" id="ids" onclick="button4('ids')" href="#">account_circle</span>
+                    <p id="chat" onclick="button4('chat')" href="#">Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                </li>
+            </ul>
         </div>
     `)
+
+    $('#popup_action2 .dropdown').on('click', '.menu li', function() {
+        var selected = $(this).text();
+        $(this).closest('.dropdown').find('.selected').text(selected);
+        $(this).addClass('active').siblings().removeClass('active');
+        
+        
+        $(this).closest('.menu').removeClass('menu-open');
+        $(this).closest('.select').removeClass('select-clicked');
+        $(this).closest('.select').find('.caret').removeClass('caret-rotate');
+    });
+
+    
+    $('#popup_action2 .dropdown .select').click(function() {
+        $(this).toggleClass('select-clicked');
+        $(this).find('.caret').toggleClass('caret-rotate');
+        $(this).siblings('.menu').toggleClass('menu-open');
+    });
 }
 
 function fillpopup_ticket_action(){
@@ -784,7 +819,7 @@ function fillpopup_ticket_action(){
                 <button class="pop-button">KICK</button>
                 <button class="pop-button">GIVE ADMIN</button>
             </div>
-            <h3>Tnteraction</h3>
+            <h3>Interaction</h3>
             <div class="pop-mod">
                 <button class="pop-button">heal</button>
                 <button class="pop-button">GO TO</button>
@@ -792,11 +827,16 @@ function fillpopup_ticket_action(){
                 <button class="pop-button">spectate</button>
                 <button class="pop-button">toggle freeze</button>
             </div>
-            <h3>Troll</h3>
+            <h3>Support</h3>
             <div class="pop-mod">
-                <button class="pop-button">make drunk</button>
-                <button class="pop-button">set fire</button>
-                <button class="pop-button">wild attack</button>
+                <button class="pop-button">Screenshot anzeigen</button>
+                <button class="pop-button">Show Inventory</button>
+                <button class="pop-button">Show Bank Account</button>
+            </div>
+            <h3>Ticket</h3>
+            <div class="pop-mod">
+                <button class="pop-button">Ticket Abschließen</button>
+                <button class="pop-button">Ticket Löschen</button>
             </div>
         </div>
     `)
@@ -839,7 +879,7 @@ function fillpopup_ticket_chat(){
         <div class="chatbot">      
             
                 <header>
-                    <h2>User 1</h2>
+                    <h2>Miha Nowotny | Diaz Cartel</h2>
                 </header>
                 <ul class="chatbox">
                     <li class="chat kommt">
