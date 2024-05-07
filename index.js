@@ -168,6 +168,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     },
     {
@@ -175,6 +176,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Fraktion",
         "status" : "offen"
     },
     {
@@ -182,6 +184,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Fraktion",
         "status" : "offen"
     },
     {
@@ -189,6 +192,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Fraktion",
         "status" : "offen"
     },
     {
@@ -196,6 +200,23 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
+        "status" : "geschlossen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
+        "status" : "geschlossen"
+    },
+    {
+        "name" : "Miha Nowotny",
+        "ticket_id" : "29398",
+        "id" : "23",
+        "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     },
     {
@@ -203,6 +224,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     },
     {
@@ -210,6 +232,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     },
     {
@@ -217,6 +240,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     },
     {
@@ -224,20 +248,7 @@ var tickets = [
         "ticket_id" : "29398",
         "id" : "23",
         "zeit" : "vor 10 Minuten",
-        "status" : "offen"
-    },
-    {
-        "name" : "Miha Nowotny",
-        "ticket_id" : "29398",
-        "id" : "23",
-        "zeit" : "vor 10 Minuten",
-        "status" : "offen"
-    },
-    {
-        "name" : "Miha Nowotny",
-        "ticket_id" : "29398",
-        "id" : "23",
-        "zeit" : "vor 10 Minuten",
+        "kategorie" : "Allgemein",
         "status" : "offen"
     }
 ]
@@ -397,7 +408,7 @@ function modal_autos(daten){
         blur.removeClass('blur');
     });
 }
-
+// Popup fenster für die tickets
 function modal_tickets(daten){
     var blur = $('#main_hud');
     blur.addClass('blur');
@@ -1289,6 +1300,7 @@ let TableTicket = $('#ticketsTable').DataTable({
         {data : 'name'},
         {data : 'ticket_id'},
         {data : 'zeit'},
+        {data : 'kategorie'},
         {data : 'status'},
         {data : 'id'}
     ],
@@ -1311,20 +1323,24 @@ let TableTicket = $('#ticketsTable').DataTable({
             targets: 3
         },
         {
-            title: 'status',
+            title: 'kategorie',
             targets: 4,
         },
         {
-            title: 'id',
+            title: 'status',
             targets: 5,
+        },
+        {
+            title: 'id',
+            targets: 6,
             sortable: false
         }
     ]
 });
 
 TableTicket.on("draw", function() {
-    if (TableTicket.column(5).nodes()) {
-        TableTicket.column(5).nodes().each(function(cell, i) {
+    if (TableTicket.column(6).nodes()) {
+        TableTicket.column(6).nodes().each(function(cell, i) {
             var taskid = $(cell).text().trim();
             $(cell).html(`
             
