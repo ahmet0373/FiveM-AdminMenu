@@ -846,9 +846,6 @@ function fillpopup_ticket_chat(){
                         <span class="material-icons-sharp">account_circle</span>
                         <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
                     </li>
-                    <li class="chat geht">
-                        <p>Das ist ein beispiel text!</p>
-                    </li>
                 </ul>
                 <div class="chat-input">
                     <textarea placeholder="Nachricht senden ..." required></textarea>
@@ -856,12 +853,36 @@ function fillpopup_ticket_chat(){
                 </div>
             
         </div>
-`);
+    `);
 
     $('.copy-icon').click(function() {
         var textToCopy = $(this).prev('h4').text();
         copyToClipboard(textToCopy);
     });
+
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+    const chatbox = document.querySelector(".chatbox");
+
+    let userMessage;
+
+    const createChatLi = (message, className) => {
+        // eine li eintrag erstellen mit nachricht und class
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", className);
+        let chatContent = className === "geht" ? `<p>${message}</p>` : `<span class="material-icons-sharp">account_circle</span><p>${message}</p>`;
+        chatLi.innerHTML = chatContent;
+        return chatLi;
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim();
+        if(!userMessage) return;
+
+        chatbox.appendChild(createChatLi(userMessage, "geht"));
+    }
+
+    sendChatBtn.addEventListener("click", handleChat);
 }
 // Haupt seite / container
 
