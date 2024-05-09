@@ -16,77 +16,88 @@ var spieler = [
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "unemployed",
+            "wl" : "0"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "unemployed",
+            "wl" : "0"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "unemployed",
+            "wl" : "0"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "Diaz Cartel"
+            "job" : "unemployed",
+            "wl" : "0"
         }
     
 ]
@@ -530,11 +541,10 @@ function fillpopup_action(){
                 <button class="pop-button">spectate</button>
                 <button class="pop-button">toggle freeze</button>
             </div>
-            <h3>Troll</h3>
+            <h3>Einreise</h3>
             <div class="pop-mod">
-                <button class="pop-button">make drunk</button>
-                <button class="pop-button">set fire</button>
-                <button class="pop-button">wild attack</button>
+                <button class="pop-button">WL Geben</button>
+                <button class="pop-button">WL Entziehen</button>
             </div>
         </div>
     `)
@@ -1118,7 +1128,10 @@ function fillcon2_left_list() {
             <div class="middle">
                 <div class="lef">
                     <h3>Tickets</h3>
-                    <h1>34</h1>
+                    <div class="zahl">
+                        <h1>34</h1>
+                        <span class="message-count">34</span>
+                    </div>
                 </div>
                 <div class="progress">
                     <svg>
@@ -1162,6 +1175,7 @@ let Table = $('#spielerTable').DataTable({
         {data : 'online_zeit'},
         {data : 'discord_id'},
         {data : 'job'},
+        {data : 'wl'},
         {data : 'id'}
     ],
     columnDefs: [
@@ -1187,8 +1201,12 @@ let Table = $('#spielerTable').DataTable({
             targets: 4
         },
         {
+            title: 'Wl',
+            targets: 5
+        },
+        {
             title: '',
-            targets: 5,
+            targets: 6,
             sortable: false
         }
     ]
@@ -1197,6 +1215,29 @@ let Table = $('#spielerTable').DataTable({
 Table.on("draw", function() {
     if (Table.column(5).nodes()) {
         Table.column(5).nodes().each(function(cell, i) {
+            var taskid = $(cell).text().trim();
+            if(taskid == "1"){
+                $(cell).html(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                    </svg>
+                `);
+            } else if (taskid == "0") {
+                $(cell).html(`
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                    </svg>
+                `);
+            }
+            
+        });    
+    }    
+       
+})
+
+Table.on("draw", function() {
+    if (Table.column(6).nodes()) {
+        Table.column(6).nodes().each(function(cell, i) {
             var taskid = $(cell).text().trim();
             $(cell).html(`
             
@@ -1260,7 +1301,10 @@ function fillcon2_left_ticket() {
             <div class="middle">
                 <div class="lef">
                     <h3>Tickets</h3>
-                    <h1>34</h1>
+                    <div class="zahl">
+                        <h1>34</h1>
+                        <span class="message-count">34</span>
+                    </div>
                 </div>
                 <div class="progress">
                     <svg>
@@ -1410,7 +1454,10 @@ function fillcon2_left_auto() {
             <div class="middle">
                 <div class="lef">
                     <h3>Tickets</h3>
-                    <h1>34</h1>
+                    <div class="zahl">
+                        <h1>34</h1>
+                        <span class="message-count">34</span>
+                    </div>
                 </div>
                 <div class="progress">
                     <svg>

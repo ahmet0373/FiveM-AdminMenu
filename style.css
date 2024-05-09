@@ -262,6 +262,8 @@ aside .sidebar .message-count{
 }
 
 
+
+
 /*--------------------------Main------------------------------*/
 
 main{
@@ -352,6 +354,18 @@ main .mitte-oben .box2 svg circle{
 main .mitte-oben .box3 svg circle{
     stroke-dashoffset: 35;
     stroke-dasharray: 110;
+}
+.mitte-oben .box3 .zahl{
+    display: flex;
+    gap: 5px;
+}
+.mitte-oben .box3 .message-count{
+    background: var(--color-danger);
+    color: var(--color-white);
+    height: 20px;
+    padding: 2px 10px;
+    font-size: 11px;
+    border-radius: var(--border-radius-1);
 }
 
 main .mitte-oben .progress .number{
