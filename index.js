@@ -1201,7 +1201,7 @@ let Table = $('#spielerTable').DataTable({
             targets: 4
         },
         {
-            title: 'Wl',
+            title: 'WL',
             targets: 5
         },
         {
