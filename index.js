@@ -284,6 +284,9 @@ var myFuncs = {
       buildcontainers(daten)
   },
 }
+
+
+
 // Popup fenster für die Spieler
 function modal_spieler(daten){
     var blur = $('#main_hud');
@@ -1624,6 +1627,20 @@ function button1(type) {
 }
 
 
+
+$(document).ready(function() {
+    // Füge einen Klick-Handler zu allen span-Elementen hinzu
+    $('a.menuselect1').click(function() {
+        // Überprüfe, ob das aktuelle Element die Klasse "active" hat
+        if ($(this).hasClass('active')) {
+            // Wenn das Element "active" hat, entferne die Klasse
+            $(this).removeClass('active');
+        } else {
+            // Wenn das Element "active" nicht hat, füge die Klasse hinzu
+            $(this).addClass('active');
+        }
+    });
+});
 
 
 buildcontainers()
