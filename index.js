@@ -1129,7 +1129,7 @@ function fillcon2_left_list() {
                 <div class="lef">
                     <h3>Tickets</h3>
                     <div class="zahl">
-                        <h1>34</h1>
+                        <h1 id="stream" class="off">34</h1>
                         <span class="message-count">34</span>
                     </div>
                 </div>
@@ -1673,7 +1673,7 @@ function button1(type) {
     }
 }
 
-
+//aktionen links
 
 $(document).ready(function() {
     // Füge einen Klick-Handler zu allen span-Elementen hinzu
@@ -1686,8 +1686,33 @@ $(document).ready(function() {
             // Wenn das Element "active" nicht hat, füge die Klasse hinzu
             $(this).addClass('active');
         }
+
+       
+
+        
     });
 });
+
+
+//streamer Modus
+
+$(document).ready(function() {
+    // Füge einen Klick-Handler nur zum Streamer-Button hinzu
+    $('#streamer').click(function() {
+        // Überprüfe, ob der Streamer-Button die Klasse "on" hat
+        if ($('#stream').hasClass('on')) {
+            // Wenn der Button "on" hat, entferne die Klasse "on" und füge "off" hinzu
+            $('#stream').removeClass('on').addClass('off');
+        } else {
+            // Wenn der Button "on" nicht hat, entferne die Klasse "off" und füge "on" hinzu
+            $('#stream').removeClass('off').addClass('on');
+        }
+    });
+});
+
+
+
+
 
 
 buildcontainers()
