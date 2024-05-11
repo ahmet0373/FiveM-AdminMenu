@@ -950,137 +950,6 @@ function fillpopup_ticket_chat(){
 }
 // Haupt seite / container
 
-function fillcon2_left_dash() {
-    $('#con2_left').html(`
-        <div class="mitte-oben">
-            <div id="list" class="box1" onclick="button1('list')" href="#">      
-                <span class="material-icons-sharp">groups</span>
-                <div class="middle">
-                    <div class="lef">
-                        <h3>Spieler</h3>
-                        <h1>434</h1>
-                    </div>
-                    <div class="progress">
-                        <svg>
-                            <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="number">
-                            <p>51%</p>
-                        </div>
-                    </div>
-                </div>
-                <small class="text-muted">Aktuell</small>
-            </div>
-            <!-------------------------Ende erste block---------------------------->
-            <div id="auto" class="box2" onclick="button1('autos')" href="#">
-                <span class="material-icons-sharp">directions_car</span>
-                <div class="middle">
-                    <div class="lef">
-                        <h3>Fahrzeuge</h3>
-                        <h1>234</h1>
-                    </div>
-                    <div class="progress">
-                        <svg>
-                            <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="number">
-                            <p>51%</p>
-                        </div>
-                    </div>
-                </div>
-                <small class="text-muted">Aktuell</small>
-            </div>
-            <!-------------------------Ende zweite block---------------------------->
-            <div id="ticket" class="box3" onclick="button1('tickets')" href="#">
-                <span class="material-icons-sharp">analytics</span>
-                <div class="middle">
-                    <div class="lef">
-                        <h3>Tickets</h3>
-                        <h1>34</h1>
-                    </div>
-                    <div class="progress">
-                        <svg>
-                            <circle cx="38" cy="38" r="36"></circle>
-                        </svg>
-                        <div class="number">
-                            <p>71%</p>
-                        </div>
-                    </div>
-                </div>
-                <small class="text-muted">Aktuell</small>
-            </div>
-            <!-------------------------Ende dritter block---------------------------->
-        </div>
-
-        <!-------------------------Ende insight---------------------------->
-        <div class="box-mitte">
-            <h2>Letzer Spieler</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Spieler Name</th>
-                        <th>Discord ID</th>
-                        <th>ID</th>
-                        <th>Job</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Miha Nowotny</td>
-                        <td>1235423</td>
-                        <td>34</td>
-                        <td>Diaz Cartel</td>
-                        <td class="primary">Details</td>
-                    </tr>
-
-                </tbody>
-            </table>
-            <!---<a href="#">Mehr Anzeigen</a>---->
-        </div>
-    `)
-}
 
 function fillcon2_left_list() {
     $('#con2_left').html(`
@@ -1213,35 +1082,12 @@ let Table = $('#spielerTable').DataTable({
 });
 
 Table.on("draw", function() {
-    if (Table.column(5).nodes()) {
-        Table.column(5).nodes().each(function(cell, i) {
-            var taskid = $(cell).text().trim();
-            if(taskid == "1"){
-                $(cell).html(`
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                    </svg>
-                `);
-            } else if (taskid == "0") {
-                $(cell).html(`
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                    </svg>
-                `);
-            }
-            
-        });    
-    }    
-       
-})
-
-Table.on("draw", function() {
     if (Table.column(6).nodes()) {
         Table.column(6).nodes().each(function(cell, i) {
             var taskid = $(cell).text().trim();
             $(cell).html(`
             
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" onclick="modal_spieler(${taskid})">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16" onclick="modal_tickets('${taskid}')">
                   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z"/>
                   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
                 </svg>
