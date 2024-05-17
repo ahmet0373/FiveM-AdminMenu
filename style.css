@@ -560,7 +560,8 @@ main .box-mitte a{
 
 #spielerTable {
     margin: 0 auto; 
-    height: 20vw;
+    min-height: 10vw;
+    max-height: 45vw;
     width: 40vw;
 }
 
@@ -570,6 +571,8 @@ main .box-mitte a{
 
 #spielerTable td {
     text-align: center; 
+    min-height: 3vw;
+    max-height: 5vw;
 }
 
 .bi.bi-eye {
@@ -588,7 +591,8 @@ main .box-mitte a{
 
 #autosTable {
     margin: 0 auto; 
-    height: 20vw;
+    min-height: 10vw;
+    max-height: 45vw;
     width: 40vw;
 }
 
@@ -604,7 +608,8 @@ main .box-mitte a{
 
 #ticketsTable {
     margin: 0 auto; 
-    height: 20vw;
+    min-height: 10vw;
+    max-height: 45vw;
     width: 40vw;
 }
 

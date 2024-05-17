@@ -10,15 +10,7 @@
 // funcs for event listener
 
 var spieler = [
-    
-        {
-            "name" : "Miha Nowotny",
-            "online_zeit" : "12h 40min",
-            "id" : "342",
-            "discord_id" : "346521",
-            "job" : "unemployed",
-            "wl" : "0"
-        },
+
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
@@ -64,16 +56,32 @@ var spieler = [
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "unemployed",
-            "wl" : "0"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
-            "job" : "unemployed",
-            "wl" : "0"
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
         },
         {
             "name" : "Miha Nowotny",
@@ -1032,6 +1040,7 @@ toolbar.innerHTML = '<h2>Spieler Liste</h2>';
 
 let Table = $('#spielerTable').DataTable({
     pageLength: 7, 
+    responsive: true,
     lengthChange: false,
     language: sprache,
     layout: {
