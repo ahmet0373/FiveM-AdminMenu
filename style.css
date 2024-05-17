@@ -73,13 +73,18 @@ body {
     height: 100vh;
     font-family: poppins, sans-serif;
     font-size: 0.88rem;
-    background: var(--color-background);
+    background: transparent;
     user-select: none;
     overflow-x: hidden;
     color: var(--color-dark);
 }
 
-
+#main_hud {
+    background-color: var(--color-background);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+}
 
 .container{
     display: flex;
@@ -94,7 +99,7 @@ body {
 
 .container2 {
     display:flex;
-    width: 80%;
+    width: 100%;
 }
 
 .on{
@@ -612,8 +617,8 @@ main .box-mitte a{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 800px; /* Du kannst die Breite nach Bedarf anpassen */
-    height: 400px; /* Quadratische Form */
+    width: 42vw; 
+    height: 40vh; 
     background-color: var(--color-white);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
@@ -623,7 +628,7 @@ main .box-mitte a{
 .popup-content {
     display: flex;
     padding: var(--card-padding);
-    gap: 3rem;
+    gap: 4vh;
 }
 
 
@@ -642,11 +647,13 @@ aside .sidebar-pop{
     background-color: var(--color-background);
     display: flex;
     flex-direction: column;
-    height: 35vh;
+    height: 34vh;
     width: 120px;
     position: relative;
+    gap: 1vh;
     top: 1rem;
     border-radius: var(--border-radius-3);
+    bottom: 30px;
 }
 
 
@@ -708,9 +715,9 @@ aside .sidebar-pop .message-count{
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
-    row-gap: 1rem;
-    height: 35vh;
-    width: 600px;
+    row-gap: 5vh;
+    height: 34vh;
+    width: 31.5vw;
 }
 .popup-content .pop-info .pop-mod{
     display: flex;
@@ -762,7 +769,7 @@ aside .sidebar-pop .message-count{
     color: var(--color-dark);
     background-color: var(--color-white);
     width: 100%; 
-    height: 90px;
+    height: 100%;
     resize: none; 
 }
 
@@ -801,8 +808,8 @@ aside .sidebar-pop .message-count{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
     row-gap: 2rem;
-    height: 35vh;
-    width: 600px;
+    height: 34vh;
+    width: 31.5vw;
 }
 
 .pop-info-info h3 {
@@ -870,9 +877,10 @@ aside .sidebar-pop .message-count{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
     row-gap: 10px;
-    height: 35vh;
-    width: 600px;
+    height: 34vh;
+    width: 31.5vw;
 }
+
 
 .popup-content .pop-info-ban h3{
     margin-top: 1rem;
@@ -1058,8 +1066,8 @@ aside .sidebar-pop .message-count{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
     row-gap: 2rem;
-    height: 35vh;
-    width: 600px;
+    height: 34vh;
+    width: 31.5vw;
 }
 
 .pop-info-ticket .top-ticket{
@@ -1228,8 +1236,8 @@ aside .sidebar-pop .message-count{
     margin-top: 1rem;
     position: fixed;
     overflow: hidden;
-    width: 600px;
-    height: 35vh;
+    height: 34vh;
+    width: 31.5vw;
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
