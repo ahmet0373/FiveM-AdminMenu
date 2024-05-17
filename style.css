@@ -84,6 +84,8 @@ body {
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
+    height: 38vw;
+    width: 70vw;
 }
 
 .container{
@@ -201,13 +203,14 @@ aside .close {
 /* --------------------SideBar--------------------------*/
 
 aside .sidebar{
-    background-color: var(--color-background);
+    
     display: flex;
     flex-direction: column;
-    height: 57vh;
+    height: 32vw;
     position: relative;
-    top: 1rem;
+    top: 1vw;
     border-radius: var(--border-radius-3);
+    
 }
 
 aside h3{
@@ -234,7 +237,7 @@ aside .sidebar a span{
 
 aside .sidebar a:last-child{
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.5vw;
     width: 100%;
 }
 
@@ -557,6 +560,8 @@ main .box-mitte a{
 
 #spielerTable {
     margin: 0 auto; 
+    height: 20vw;
+    width: 40vw;
 }
 
 #spielerTable th {
@@ -583,6 +588,8 @@ main .box-mitte a{
 
 #autosTable {
     margin: 0 auto; 
+    height: 20vw;
+    width: 40vw;
 }
 
 #autosTable th {
@@ -597,6 +604,8 @@ main .box-mitte a{
 
 #ticketsTable {
     margin: 0 auto; 
+    height: 20vw;
+    width: 40vw;
 }
 
 #ticketsTable th {
@@ -647,7 +656,7 @@ aside .sidebar-pop{
     background-color: var(--color-background);
     display: flex;
     flex-direction: column;
-    height: 34vh;
+    height: 19vw;
     width: 120px;
     position: relative;
     gap: 1vh;
@@ -716,7 +725,7 @@ aside .sidebar-pop .message-count{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
     row-gap: 5vh;
-    height: 34vh;
+    height: 19vw;
     width: 31.5vw;
 }
 .popup-content .pop-info .pop-mod{
@@ -808,7 +817,7 @@ aside .sidebar-pop .message-count{
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
     row-gap: 2rem;
-    height: 34vh;
+    height: 19vw;
     width: 31.5vw;
 }
 
@@ -1236,7 +1245,7 @@ aside .sidebar-pop .message-count{
     margin-top: 1rem;
     position: fixed;
     overflow: hidden;
-    height: 34vh;
+    height: 19vw;
     width: 31.5vw;
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
