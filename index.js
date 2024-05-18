@@ -1039,7 +1039,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Spieler Liste</h2>';
 
 let Table = $('#spielerTable').DataTable({
-    pageLength: 7, 
+    pageLength: 6, 
     responsive: true,
     lengthChange: false,
     language: sprache,
@@ -1190,7 +1190,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Tickets</h2>';
 
 let TableTicket = $('#ticketsTable').DataTable({
-    pageLength: 7, 
+    pageLength: 6, 
     lengthChange: false,
     language: sprache,
     layout: {
@@ -1343,7 +1343,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Auto Liste</h2>';
 
 let TableAuto = $('#autosTable').DataTable({
-    pageLength: 7, 
+    pageLength: 6, 
     lengthChange: false,
     language: sprache,
     layout: {
