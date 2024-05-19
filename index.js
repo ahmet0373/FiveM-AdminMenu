@@ -104,6 +104,38 @@ var spieler = [
             "online_zeit" : "12h 40min",
             "id" : "342",
             "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
+            "job" : "Diaz Cartel",
+            "wl" : "1"
+        },
+        {
+            "name" : "Miha Nowotny",
+            "online_zeit" : "12h 40min",
+            "id" : "342",
+            "discord_id" : "346521",
             "job" : "unemployed",
             "wl" : "0"
         }
@@ -1039,7 +1071,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Spieler Liste</h2>';
 
 let Table = $('#spielerTable').DataTable({
-    pageLength: 6, 
+    pageLength: 10, 
     responsive: true,
     lengthChange: false,
     language: sprache,
@@ -1190,7 +1222,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Tickets</h2>';
 
 let TableTicket = $('#ticketsTable').DataTable({
-    pageLength: 6, 
+    pageLength: 10, 
     lengthChange: false,
     language: sprache,
     layout: {
@@ -1343,7 +1375,7 @@ let toolbar = document.createElement('div');
 toolbar.innerHTML = '<h2>Auto Liste</h2>';
 
 let TableAuto = $('#autosTable').DataTable({
-    pageLength: 6, 
+    pageLength: 10, 
     lengthChange: false,
     language: sprache,
     layout: {
