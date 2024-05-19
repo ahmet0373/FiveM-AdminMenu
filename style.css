@@ -1272,11 +1272,21 @@ aside .sidebar-pop .message-count{
 }
 
 .chatbot header{
+    display: flex;
     height: 2vw;
     background: var(--color-primary-variant);
     padding: 5px 0;
     text-align: center;
+    justify-content: center;
     border-radius: 10px 10px 0 0;
+}
+
+.chatbot header span{
+    color: var(--color-danger);
+    position: absolute;
+    right: 3vw;
+    cursor: pointer;
+    text-align: center;
 }
 
 .chatbot header h2{
@@ -1364,6 +1374,21 @@ aside .sidebar-pop .message-count{
 
     
     
+}
+
+
+.chatbot .chat-input textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chatbot .chat-input textarea::-webkit-scrollbar-track {
+    background: var(--color-background);
+    border-radius: 3px;
+}
+
+.chatbot .chat-input textarea::-webkit-scrollbar-thumb {
+    background: var(--color-dark-variant);
+    border-radius: 3px;
 }
 
 .chatbot .chat-input span {

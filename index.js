@@ -523,6 +523,67 @@ function modal_tickets(daten){
         blur.removeClass('blur');
     });
 }
+// Popup fenster für die tickets von spieler
+function modal_ticketsspieler(daten){
+    var blur = $('#main_hud');
+    blur.addClass('blur');
+
+    var popupContent = `
+        <div class="popup">
+            <div class="popup-content">
+            <span class="close material-icons-sharp">close</span>
+            
+                    <aside id="nav">
+                        <div class="sidebar-pop">
+                            
+            
+                            <a id="actions" class="menuselect active" onclick="button7('ticket1')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 1</h3>
+                            </a>
+            
+                            <a id="infos" class="menuselect" onclick="button7('ticket2')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 2</h3>
+                            </a>
+                            <a id="ids" class="menuselect" onclick="button7('ticket3')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 3</h3>
+                            </a>
+                            <a id="chat" class="menuselect" onclick="button7('ticket4')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 4</h3>
+                            </a>
+                        </div>
+        
+                    </aside>
+                    
+                    <div id="popup_action2">
+                        <!-- generated content -->
+                    </div>
+                    
+            </div>
+        </div>
+    `;
+    
+    
+    $('body').append(popupContent); 
+
+    button7("ticket1");
+
+    $(document).mouseup(function(e) {
+        var popup = $('.popup-content');
+        if (!popup.is(e.target) && popup.has(e.target).length === 0) {
+            $('.popup').remove();
+            blur.removeClass('blur');
+        }
+    });
+    
+    $('.close').click(function() {
+        $('.popup').remove();
+        blur.removeClass('blur');
+    });
+}
 
 
 function buildcontainers() {
@@ -988,6 +1049,232 @@ function fillpopup_ticket_chat(){
 
     sendChatBtn.addEventListener("click", handleChat);
 }
+// Popup für die Recent tickets für spieler
+
+function button7(type) {
+
+    if (type == "ticket1") {
+        fillpopup_ticket_chat1() 
+        $('.menuselect').removeClass('active');
+        $('#actions').addClass('active');
+
+    } else if (type == "ticket2") {
+        fillpopup_ticket_chat2()
+        $('.menuselect').removeClass('active');
+        $('#infos').addClass('active');
+    } else if (type == "ticket3") {
+        fillpopup_ticket_chat3()
+        $('.menuselect').removeClass('active');
+        $('#ids').addClass('active');
+    } else if (type == "ticket4") {
+        fillpopup_ticket_chat4()
+        $('.menuselect').removeClass('active');
+        $('#chat').addClass('active');
+    } 
+}
+function fillpopup_ticket_chat1(){
+    $('#popup_action2').html(`
+        <div class="chatbot">      
+            
+                <header>
+                    <h2>Miha Nowotny | #0001</h2>
+                    <span class="material-icons-sharp">cancel</span>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat kommt">
+                        <span class="material-icons-sharp">account_circle</span>
+                        <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Nachricht senden ..." required></textarea>
+                    <span class="material-icons-sharp">send</span>
+                </div>
+            
+        </div>
+    `);
+
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+    const chatbox = document.querySelector(".chatbox");
+
+    let userMessage;
+
+    const createChatLi = (message, className) => {
+        // eine li eintrag erstellen mit nachricht und class
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", className);
+        let chatContent = className === "geht" ? `<p>${message}</p>` : `<span class="material-icons-sharp">account_circle</span><p>${message}</p>`;
+        chatLi.innerHTML = chatContent;
+        return chatLi;
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim();
+        if(!userMessage) return;
+
+        chatbox.appendChild(createChatLi(userMessage, "geht"));
+    }
+
+    sendChatBtn.addEventListener("click", handleChat);
+}
+function fillpopup_ticket_chat2(){
+    $('#popup_action2').html(`
+        <div class="chatbot">      
+            
+                <header>
+                    <h2>Miha Nowotny | #0002</h2>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat kommt">
+                        <span class="material-icons-sharp">account_circle</span>
+                        <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Nachricht senden ..." required></textarea>
+                    <span class="material-icons-sharp">send</span>
+                </div>
+            
+        </div>
+    `);
+
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+    const chatbox = document.querySelector(".chatbox");
+
+    let userMessage;
+
+    const createChatLi = (message, className) => {
+        // eine li eintrag erstellen mit nachricht und class
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", className);
+        let chatContent = className === "geht" ? `<p>${message}</p>` : `<span class="material-icons-sharp">account_circle</span><p>${message}</p>`;
+        chatLi.innerHTML = chatContent;
+        return chatLi;
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim();
+        if(!userMessage) return;
+
+        chatbox.appendChild(createChatLi(userMessage, "geht"));
+    }
+
+    sendChatBtn.addEventListener("click", handleChat);
+}
+function fillpopup_ticket_chat3(){
+    $('#popup_action2').html(`
+        <div class="chatbot">      
+            
+                <header>
+                    <h2>Miha Nowotny | #0003</h2>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat kommt">
+                        <span class="material-icons-sharp">account_circle</span>
+                        <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Nachricht senden ..." required></textarea>
+                    <span class="material-icons-sharp">send</span>
+                </div>
+            
+        </div>
+    `);
+
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+    const chatbox = document.querySelector(".chatbox");
+
+    let userMessage;
+
+    const createChatLi = (message, className) => {
+        // eine li eintrag erstellen mit nachricht und class
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", className);
+        let chatContent = className === "geht" ? `<p>${message}</p>` : `<span class="material-icons-sharp">account_circle</span><p>${message}</p>`;
+        chatLi.innerHTML = chatContent;
+        return chatLi;
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim();
+        if(!userMessage) return;
+
+        chatbox.appendChild(createChatLi(userMessage, "geht"));
+    }
+
+    sendChatBtn.addEventListener("click", handleChat);
+}
+
+function fillpopup_ticket_chat4(){
+    $('#popup_action2').html(`
+        <div class="chatbot">      
+            
+                <header>
+                    <h2>Miha Nowotny | #0004</h2>
+                </header>
+                <ul class="chatbox">
+                    <li class="chat kommt">
+                        <span class="material-icons-sharp">account_circle</span>
+                        <p>Ich bin stuck! ich brauche hier schnell hilfe bin in dem MLO seit gestern stuck, da ich die schlüsseln nicht habe komme ich hier nicht mehr raus! brauche dringend hilfe</p>
+                    </li>
+                </ul>
+                <div class="chat-input">
+                    <textarea placeholder="Nachricht senden ..." required></textarea>
+                    <span class="material-icons-sharp">send</span>
+                </div>
+            
+        </div>
+    `);
+
+    $('.copy-icon').click(function() {
+        var textToCopy = $(this).prev('h4').text();
+        copyToClipboard(textToCopy);
+    });
+
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+    const chatbox = document.querySelector(".chatbox");
+
+    let userMessage;
+
+    const createChatLi = (message, className) => {
+        // eine li eintrag erstellen mit nachricht und class
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", className);
+        let chatContent = className === "geht" ? `<p>${message}</p>` : `<span class="material-icons-sharp">account_circle</span><p>${message}</p>`;
+        chatLi.innerHTML = chatContent;
+        return chatLi;
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim();
+        if(!userMessage) return;
+
+        chatbox.appendChild(createChatLi(userMessage, "geht"));
+    }
+
+    sendChatBtn.addEventListener("click", handleChat);
+}
+
 // Haupt seite / container
 
 
