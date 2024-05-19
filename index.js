@@ -554,6 +554,7 @@ function modal_ticketsspieler(daten){
                                 <span class="material-icons-sharp">question_answer</span>
                                 <h3>Ticket 4</h3>
                             </a>
+                            
                         </div>
         
                     </aside>

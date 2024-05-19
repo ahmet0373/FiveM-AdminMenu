@@ -672,7 +672,7 @@ aside .sidebar-pop{
     top: 1vw;
     border-radius: var(--border-radius-3);
     bottom: 30px;
-    
+    overflow-x: scroll;
 }
 
 
