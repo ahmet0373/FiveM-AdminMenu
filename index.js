@@ -541,7 +541,14 @@ function modal_ticketsspieler(daten){
                                 <span class="material-icons-sharp">question_answer</span>
                                 <h3>Ticket 1</h3>
                             </a>
-            
+                            <a id="infos" class="menuselect" onclick="button7('ticket2')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 2</h3>
+                            </a>
+                            <a id="infos" class="menuselect" onclick="button7('ticket2')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 2</h3>
+                            </a>
                             <a id="infos" class="menuselect" onclick="button7('ticket2')" href="#">
                                 <span class="material-icons-sharp">question_answer</span>
                                 <h3>Ticket 2</h3>
@@ -554,6 +561,17 @@ function modal_ticketsspieler(daten){
                                 <span class="material-icons-sharp">question_answer</span>
                                 <h3>Ticket 4</h3>
                             </a>
+
+                            <a id="chat" class="menuselect" onclick="button7('ticket4')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 4</h3>
+                            </a>
+
+                            <a id="chat" class="menuselect" onclick="button7('ticket4')" href="#">
+                                <span class="material-icons-sharp">question_answer</span>
+                                <h3>Ticket 4</h3>
+                            </a>
+                            
                             
                         </div>
         

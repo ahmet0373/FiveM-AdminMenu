@@ -672,8 +672,10 @@ aside .sidebar-pop{
     top: 1vw;
     border-radius: var(--border-radius-3);
     bottom: 30px;
-    overflow-x: scroll;
+    overflow-y: scroll;
 }
+
+
 
 
 aside .sidebar-pop a{
@@ -1264,7 +1266,7 @@ aside .sidebar-pop .message-count{
     overflow: hidden;
     height: 19vw;
     width: 31.5vw;
-    margin-left: 2.5vw;
+    margin-left: 2vw;
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     box-shadow: var(--box-shadow);
@@ -1379,6 +1381,12 @@ aside .sidebar-pop .message-count{
 
 .chatbot .chat-input textarea::-webkit-scrollbar {
     width: 5px;
+}
+
+.chatbot .chat-input textarea::-webkit-scrollbar-button:start,
+.chatbot .chat-input textarea::-webkit-scrollbar-button:end {
+    display: block;
+    height: 0.7vw;
 }
 
 .chatbot .chat-input textarea::-webkit-scrollbar-track {
